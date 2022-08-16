@@ -1,5 +1,6 @@
 import pytest
 from prom_monitoring_urls_web_app import create_app
+from prometheus_client import CollectorRegistry, REGISTRY
 
 @pytest.fixture()
 def app():
@@ -28,3 +29,8 @@ def runner(app):
 def test_index(client):
     response = client.get('/')
     assert '<h1>Prometheus metrics for URLs availability and response availiability</h1>' in str(response.data)
+
+
+def test_metrics(client):
+    response = client.get('/metrics')
+    assert 'python_gc_objects_collected_total' in str(response.data)
