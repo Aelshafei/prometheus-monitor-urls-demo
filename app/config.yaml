@@ -1,4 +1,4 @@
 name: 'prom_monitoring_urls_web_app'
 description: 'Prometheus metrics for URLs availability and response availiability'
 urls:
-  - http://localhost:5000/
+  - http://localhost:8000/
