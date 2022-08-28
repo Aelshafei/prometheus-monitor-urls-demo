@@ -4,10 +4,7 @@ from prometheus_client import CollectorRegistry, REGISTRY
 
 @pytest.fixture()
 def app():
-    app = create_app()
-    app.config.update({
-        "TESTING": True,
-    })
+    app = create_app(test_config={'TESTING': True})
 
     # other setup can go here
 
