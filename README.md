@@ -61,7 +61,9 @@ helm install prom-monitoring-urls-web-app ./prom-monitoring-urls-web-app/ -n mon
 After adding the application as a target in Prometheus server, you can test using the following queries:
 ```
 sample_external_url_up{url="https://httpstat.us/503"}
+sample_external_url_up{url="https://httpstat.us/200"}
 rate(sample_external_url_response_ms_sum{url="https://httpstat.us/503"}[1m])
+rate(sample_external_url_response_ms_sum{url="https://httpstat.us/200"}[1m])
 ```
 
 ## Testing
@@ -89,6 +91,6 @@ More best-practices can be adopted while deploying the application such as:
 - More restrictions can be applied by configured [OPA Gatekeeper policies](https://kubernetes.io/blog/2019/08/06/opa-gatekeeper-policy-and-governance-for-kubernetes/)
 - Ensure that new-built images are contiiously [scanned](https://docs.docker.com/develop/scan-images/) against any known Vulnerabilities
 
-## Screenshot
+## Screenshots
 You can find some screenshots for deploying,running,testing,visualizing this project in the [screenshots Readme](assets/SCREENSHOTs.md).
 
