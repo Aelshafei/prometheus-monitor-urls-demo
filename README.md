@@ -90,5 +90,5 @@ More best-practices can be adopted while deploying the application such as:
 - Ensure that new-built images are contiiously [scanned](https://docs.docker.com/develop/scan-images/) against any known Vulnerabilities
 
 ## Screenshot
-You can find some screenshots for deploying,running,testing,visualizing this project in the [screenshots Readme](/assets/SCREENSHOTS.md).
+You can find some screenshots for deploying,running,testing,visualizing this project in the [screenshots Readme](assets/SCREENSHOTS.md).
 
