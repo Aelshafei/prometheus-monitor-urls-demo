@@ -3,7 +3,7 @@ A demo project to monitor URLs availability and response times using [Prometheus
 
 ![Alt text](assets/docs/img/arch.png "Archtiecture")
 
-The monitoring application is writting in Python using Flask framework and Prometheus Client Libraties.
+The monitoring application is written in Python using Flask framework and Prometheus Client Libraties.
 
 ## Application Development and Configuration
 The Web Application is writtent in Python using [Flask](https://flask.palletsprojects.com/) framework in order to monitor defined URLs avaialbility and response times by exposing the following metrics for evey URL:
