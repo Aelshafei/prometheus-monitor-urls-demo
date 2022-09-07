@@ -9,7 +9,7 @@ The monitoring application is writting in Python using Flask framework and Prome
 The Web Application is writtent in Python using [Flask](https://flask.palletsprojects.com/) framework in order to monitor defined URLs avaialbility and response times by exposing the following metrics for evey URL:
 | metric name | metric type | labels | Description |
 | ------ | ------ | ------ |  ------ | 
-| sample_external_url_up | [Guage](https://prometheus.io/docs/concepts/metric_types/#gauge) | url | value is set to 1 if response code is 200 or 0 otherwise |
+| sample_external_url_up | [Gauge](https://prometheus.io/docs/concepts/metric_types/#gauge) | url | value is set to 1 if response code is 200 or 0 otherwise |
 | sample_external_url_response_ms | [Histogram](https://prometheus.io/docs/concepts/metric_types/#histogram) | url | response time in milliseconds |
 
 The web application serves the following HTTP handlers:
