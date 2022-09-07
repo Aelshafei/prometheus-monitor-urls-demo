@@ -32,7 +32,7 @@ def invalid_url_runner(invalid_url_app):
 
 def test_index(client):
     response = client.get('/')
-    assert '<h1>Prometheus metrics for URLs availability and response availiability</h1>' in str(response.data)
+    assert '"description":' and '"name":' in str(response.data)
 
 
 def test_metrics(client):
