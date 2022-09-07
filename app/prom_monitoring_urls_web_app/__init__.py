@@ -1,6 +1,5 @@
 from flask import Flask
 import logging
-import socket
 from prom_monitoring_urls_web_app.utils import parse_config_file
 from prom_monitoring_urls_web_app import handlers_blueprint
 from prom_monitoring_urls_web_app.metrics import initialize_metrics

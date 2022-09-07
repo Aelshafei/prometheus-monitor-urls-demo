@@ -1,16 +1,16 @@
 # Monitoring URLs availability and response times
-A demo project to monitor URLs availability and response times using Prometheus client libraries.
+A demo project to monitor URLs availability and response times using [Prometheus client libraries](https://github.com/prometheus/client_python).
 
 ![Alt text](assets/docs/img/arch.png "Archtiecture")
 
 The monitoring application is writting in Python using Flask framework and Prometheus Client Libraties.
 
 ## Application Development and Configuration
-The Web Application is writtent in Python using Flask framework in order to monitor defined URLs avaialbility and response times by exposing the following metrics for evey URL:
+The Web Application is writtent in Python using [Flask](https://flask.palletsprojects.com/) framework in order to monitor defined URLs avaialbility and response times by exposing the following metrics for evey URL:
 | metric name | metric type | labels | Description |
 | ------ | ------ | ------ |  ------ | 
-| sample_external_url_up | Guage | url | value is set to 1 if response code is 200 or 0 otherwise |
-| sample_external_url_response_ms | Histogram | url | response time in milliseconds |
+| sample_external_url_up | [Guage](https://prometheus.io/docs/concepts/metric_types/#gauge) | url | value is set to 1 if response code is 200 or 0 otherwise |
+| sample_external_url_response_ms | [Histogram](https://prometheus.io/docs/concepts/metric_types/#histogram) | url | response time in milliseconds |
 
 The web application serves the following HTTP handlers:
 
@@ -58,7 +58,14 @@ cd helm/
 helm install prom-monitoring-urls-web-app ./prom-monitoring-urls-web-app/ -n monitoring --set image.repository=aelshafei/prom-monitoring-urls-web-app --set "conig.urls={https://httpstat.us/200,https://httpstat.us/503}
 ```
 
+After adding the application as a target in Prometheus server, you can test using the following queries:
+```
+sample_external_url_up{url="https://httpstat.us/503"}
+rate(sample_external_url_response_ms_sum{url="https://httpstat.us/503"}[1m])
+```
+
 ## Testing
+
 Unit and web tests are written using [pytest](https://docs.pytest.org/) library, you can execute the tests and check the test coverage using the command:
 ```
 cd app/

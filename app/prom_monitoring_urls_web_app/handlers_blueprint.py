@@ -1,5 +1,5 @@
-from flask import Blueprint, render_template, current_app, Response, jsonify
-from prometheus_client import Counter, Histogram, generate_latest, CollectorRegistry, Gauge, REGISTRY
+from flask import Blueprint, current_app, Response, jsonify
+from prometheus_client import generate_latest
 from prom_monitoring_urls_web_app.utils import check_connectivity_with_socket, get_list_of_hosts_from_config, get_url_response_code_and_time
 
 
@@ -7,7 +7,6 @@ base_bp = Blueprint('base', __name__, url_prefix='/')
 
 @base_bp.route('/')
 def index():
-    #return render_template('index.html', config = current_app.config['data'])
     return jsonify(current_app.config['data'])
 
 
