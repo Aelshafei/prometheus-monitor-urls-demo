@@ -18,7 +18,7 @@ The web application serves the following HTTP handlers:
 | ------ | ------ |
 | / (GET) | returns the application configuration in JSON format including the list of monitored URLs |
 | /health (GET) | returns 200 when the monitored endpoints are accessible by the application (using python sockets). This handler is used to control pods readiness and livenes |
-| /metrics | the actual handler exposed as a target for Prometheus server, it reaturns the python process, runtime metrics as well as the uptime and response time metrics for monitored endpoints
+| /metrics (GET) | the actual handler exposed as a target for Prometheus server, it reaturns the python process, runtime metrics as well as the uptime and response time metrics for monitored endpoints
 
 The list of URL can be defined through a YAML configuration file `config.yaml`. In Kubernetes deployments these configurations can be adjusted through ConfigMap or through helm release values.
 
